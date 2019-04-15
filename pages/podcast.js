@@ -47,7 +47,7 @@ export default class Podcast extends Component {
         <header>Podcast</header>
         <div className="channels">
           {channels.map((channel, index) => (
-            <Link href="/channel" key={index} prefetch>
+            <Link href={`/channel?id=${channel.id}`} key={index} prefetch>
               <a className="channel" key={index}>
                 <img
                   src={channel.urls.logo_image.original}
