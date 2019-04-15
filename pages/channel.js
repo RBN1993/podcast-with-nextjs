@@ -32,6 +32,7 @@ const Channel = ({ title, audio_clips, series }) => {
         h1 {
           font-weight: 600;
           padding: 15px;
+          text-align: center;
         }
         h2 {
           padding: 5px;
@@ -46,44 +47,49 @@ const Channel = ({ title, audio_clips, series }) => {
       <h1>{title}</h1>
 
       <h2>Series</h2>
-      {series.map((serie, index) => (
-        <div key={index}>{serie.title}</div>
-      ))}
-
+      <div className="channels">
+        {series.map((serie, index) => (
+          <a className="channel" key={index}>
+            {serie.title}
+          </a>
+        ))}
+      </div>
       <h2>Últimos Podcast</h2>
-      {audio_clips.map((audio, index) => (
-        <div key={index}>{audio.title}</div>
-      ))}
+      <div className="channels">
+        {audio_clips.map((audio, index) => (
+          <a className="channel" key={index}>
+            {audio.title}
+            <img src={audio.urls.image} />
+          </a>
+        ))}
+      </div>
     </>
   )
 }
 
 Channel.getInitialProps = async req => {
-  // Información del Channel
-  const reqInfo = await fetch(
-    `https://api.audioboom.com/channels/${req.query.id}`
-  )
-  // const {
-  //   body: { channel }
-  // } = await request.json()
+  const channelId = req.query.id
+  //Para evitar el segundo y medio anterior se pueden paralelizar las request
+  const [reqInfo, reqAudio, reqChild] = await Promise.all([
+    fetch(`https://api.audioboom.com/channels/${channelId}`),
+    fetch(`https://api.audioboom.com/channels/${channelId}/audio_clips`),
+    fetch(`https://api.audioboom.com/channels/${channelId}/child_channels`)
+  ])
 
+  // Los await siguientes se podrían poner en un Promise.all pero la diferencia de tiempo sería pequeña
+
+  // Información del Channel
   const channel = await reqInfo.json()
   const { title } = channel.body.channel
 
   // Información del audio
-  const reqAudio = await fetch(
-    `https://api.audioboom.com/channels/${req.query.id}/audio_clips`
-  )
   const audios = await reqAudio.json()
   const { audio_clips } = audios.body
 
   // Información de los child channels (series)
-  const reqChild = await fetch(
-    `https://api.audioboom.com/channels/${req.query.id}/child_channels`
-  )
   const childs = await reqChild.json()
   const series = childs.body.channels
-  //Casi segundo y medio de llamada !!!
+
   return { title, audio_clips, series }
 }
 export default Channel
