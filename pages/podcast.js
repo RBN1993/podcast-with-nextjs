@@ -8,6 +8,6 @@ Podcast.getInitialProps = async ({ query }) => {
     `https://api.audioboom.com/audio_clips/${id}.mp3`
   )
   const clip = (await fetchClip.json()).body.audio_clip
-  return { clip }
+  return { clip, title: `${clip.title}` }
 }
 export default Podcast

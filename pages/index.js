@@ -6,7 +6,7 @@ export default class Index extends Component {
   static async getInitialProps() {
     const req = await fetch('https://api.audioboom.com/channels/recommended')
     const { body: channels } = await req.json()
-    return { channels }
+    return { channels, title: 'Podcast' }
   }
   render() {
     const { channels } = this.props
