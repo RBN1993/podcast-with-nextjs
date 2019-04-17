@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout, Menu, Icon } from 'antd'
+import { Layout, Icon } from 'antd'
 import Link from 'next/link'
 import { withRouter } from 'next/router'
 
