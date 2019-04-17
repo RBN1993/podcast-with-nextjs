@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "antd": "^3.16.2",
     "isomorphic-fetch": "^2.2.1",
     "next": "^8.0.4",

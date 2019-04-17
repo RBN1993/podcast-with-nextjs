@@ -1,32 +1,26 @@
-import React from 'react'
+import { Component } from 'react'
+import 'isomorphic-fetch'
+import Link from 'next/link'
 
-const IndexPage = () => {
-  return (
-    <>
-      {/* Style jsx solo añade estilos sobre este componente y sus etiquetas,
-    entonces no se puede usar css sobre body, por ejemplo. Se podría usar <style jsx global>
-    pero sería lo mismo que usar css convencional */}
-      <style jsx>
-        {`
-          h1 {
-            color: red;
-          }
-          p {
-            color: #369;
-          }
-          img {
-            max-width: 50%;
-            display: block;
-            margin: auto;
-          }
-          text-align: center;
-        `}
-      </style>
-      <h1>Hola next!</h1>
-      <p>Probando jsx</p>
-      <img src="/static/papa-roach.jpg" alt="Image form static folder" />
-    </>
-  )
+export default class Index extends Component {
+  static async getInitialProps() {
+    const req = await fetch('https://api.audioboom.com/channels/recommended')
+    const { body: channels } = await req.json()
+    return { channels }
+  }
+  render() {
+    const { channels } = this.props
+    return (
+      <div className="channels">
+        {channels.map((channel, index) => (
+          <Link href={`/channel?id=${channel.id}`} key={index} prefetch>
+            <a className="channel" key={index}>
+              <img src={channel.urls.logo_image.original} alt={channel.title} />
+              <h2>{channel.title}</h2>
+            </a>
+          </Link>
+        ))}
+      </div>
+    )
+  }
 }
-
-export default IndexPage
