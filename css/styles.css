@@ -1,5 +1,8 @@
 /* Index and channel */
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
 body {
+  font-family: 'Gloria Hallelujah', cursive;
   background: #8756ca;
 }
 .content {
