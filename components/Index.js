@@ -7,7 +7,7 @@ const IndexPage = ({ channels }) => (
       <Link href={`/channel?id=${channel.id}`} key={index} prefetch>
         <a className="channel" key={index}>
           <img src={channel.urls.logo_image.original} alt={channel.title} />
-          <h2>{channel.title}</h2>
+          <h2 id="channelH2">{channel.title}</h2>
         </a>
       </Link>
     ))}
