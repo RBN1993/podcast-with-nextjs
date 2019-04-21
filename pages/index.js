@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import 'isomorphic-fetch'
-import Error from 'next/error'
+import Error from './_error'
 import IndexPage from '../components/Index'
 
 export default class Index extends Component {

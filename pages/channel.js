@@ -1,6 +1,6 @@
 import React from 'react'
 import 'isomorphic-fetch'
-import Error from 'next/error'
+import Error from './_error'
 import _Channel from '../components/Channel'
 
 const Channel = props => {
@@ -21,7 +21,7 @@ Channel.getInitialProps = async ({ res, query }) => {
     if (reqInfo.status >= 400) {
       res.statusCode = reqInfo.status
       return {
-        title: null,
+        title: 'Oh no :(',
         audio_clips: null,
         series: null,
         urls: null,
@@ -47,7 +47,7 @@ Channel.getInitialProps = async ({ res, query }) => {
     if (res) res.statusCode = 503
 
     return {
-      title: null,
+      title: 'Oh no =(',
       audio_clips: null,
       series: null,
       urls: null,
