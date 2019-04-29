@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-
+import Router from 'next/router'
+import { Icon } from 'antd'
 export default class Error extends React.Component {
   static getInitialProps({ res, err }) {
     const statusCode = res ? res.statusCode : err ? err.statusCode : null
@@ -25,6 +26,12 @@ export default class Error extends React.Component {
           <div className="message">
             <h1>Hubo un problema :(</h1>
             <p>Inténtalo de nuevo más tarde</p>
+            <div onClick={() => Router.back()}>
+              <a className="links">
+                <Icon type="left-circle" />
+                <span>Volver</span>
+              </a>
+            </div>
           </div>
         )}
         <style jsx>{`
