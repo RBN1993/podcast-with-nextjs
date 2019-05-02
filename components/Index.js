@@ -1,4 +1,5 @@
 import React from 'react'
+import slugify from 'slugify'
 import { Link } from '../routes'
 
 const IndexPage = ({ channels }) => (
@@ -6,7 +7,7 @@ const IndexPage = ({ channels }) => (
     {channels.map((channel, index) => (
       <Link
         route="channel"
-        params={{ slug: channel.title, id: channel.id }}
+        params={{ slug: slugify(channel.title), id: channel.id }}
         key={index}
         prefetch
       >
