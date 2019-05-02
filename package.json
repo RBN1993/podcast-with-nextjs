@@ -4,15 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "node server",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "antd": "^3.16.2",
     "isomorphic-fetch": "^2.2.1",
     "next": "^8.0.4",
+    "next-routes": "^1.4.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }
