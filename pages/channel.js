@@ -25,7 +25,8 @@ Channel.getInitialProps = async ({ res, query }) => {
         audio_clips: null,
         series: null,
         urls: null,
-        statusCode: reqInfo.status
+        statusCode: reqInfo.status,
+        channelId: null
       }
     }
     // Los await siguientes se podrían poner en un Promise.all pero la diferencia de tiempo sería pequeña
@@ -42,7 +43,14 @@ Channel.getInitialProps = async ({ res, query }) => {
     const childs = await reqChild.json()
     const series = childs.body.channels
 
-    return { title, audio_clips, series, urls, statusCode: 200 }
+    return {
+      title,
+      audio_clips,
+      series,
+      urls,
+      statusCode: 200,
+      channelId
+    }
   } catch (e) {
     if (res) res.statusCode = 503
 
@@ -51,7 +59,8 @@ Channel.getInitialProps = async ({ res, query }) => {
       audio_clips: null,
       series: null,
       urls: null,
-      statusCode: 503
+      statusCode: 503,
+      channelId: null
     }
   }
 }

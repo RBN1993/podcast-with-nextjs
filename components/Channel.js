@@ -1,7 +1,7 @@
 import React from 'react'
-import Link from 'next/link'
+import { Link } from '../routes'
 
-const Channel = ({ title, urls, audio_clips, series }) => {
+const Channel = ({ title, urls, audio_clips, series, channelId }) => {
   return (
     <>
       <div
@@ -17,7 +17,12 @@ const Channel = ({ title, urls, audio_clips, series }) => {
           <h2 id="channelH2">Series</h2>
           <div className="channels">
             {series.map((serie, index) => (
-              <Link href={`/channel?id=${serie.id}`} prefetch key={index}>
+              <Link
+                route="channel"
+                params={{ slug: serie.title, id: serie.id }}
+                prefetch
+                key={index}
+              >
                 <a className="channel" key={index}>
                   <img src={serie.urls.logo_image.original} />
                   <h2 id="channelH2">{serie.title}</h2>
@@ -33,7 +38,17 @@ const Channel = ({ title, urls, audio_clips, series }) => {
           <h2 id="channelH2">Últimos Podcasts</h2>
           <div className="channels">
             {audio_clips.map((audio, index) => (
-              <Link href={`/podcast?id=${audio.id}`} prefetch key={index}>
+              <Link
+                route="podcast"
+                params={{
+                  slugChannel: title,
+                  idChannel: channelId,
+                  slug: audio.title,
+                  id: audio.id
+                }}
+                prefetch
+                key={index}
+              >
                 <a className="channel" key={index}>
                   <img src={audio.urls.image} />
                   <h2 id="channelH2">{audio.title}</h2>
