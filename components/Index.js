@@ -1,4 +1,4 @@
-import slugify from 'slugify'
+import { slug } from '../helpers/slug'
 import { Link } from '../routes'
 
 const IndexPage = ({ channels }) => (
@@ -6,7 +6,7 @@ const IndexPage = ({ channels }) => (
     {channels.map((channel, index) => (
       <Link
         route="channel"
-        params={{ slug: slugify(channel.title), id: channel.id }}
+        params={{ slug: slug(channel.title), id: channel.id }}
         key={index}
         prefetch
       >

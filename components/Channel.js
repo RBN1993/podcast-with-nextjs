@@ -1,4 +1,4 @@
-import slugify from 'slugify'
+import { slug } from '../helpers/slug'
 import { Link } from '../routes'
 
 const Channel = ({ title, urls, audio_clips, series, channelId }) => {
@@ -19,7 +19,7 @@ const Channel = ({ title, urls, audio_clips, series, channelId }) => {
             {series.map((serie, index) => (
               <Link
                 route="channel"
-                params={{ slug: slugify(serie.title), id: serie.id }}
+                params={{ slug: slug(serie.title), id: serie.id }}
                 prefetch
                 key={index}
               >
@@ -41,9 +41,9 @@ const Channel = ({ title, urls, audio_clips, series, channelId }) => {
               <Link
                 route="podcast"
                 params={{
-                  slugChannel: slugify(title),
+                  slugChannel: slug(title),
                   idChannel: channelId,
-                  slug: slugify(audio.title),
+                  slug: slug(audio.title),
                   id: audio.id
                 }}
                 prefetch
