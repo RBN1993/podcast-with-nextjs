@@ -1,4 +1,3 @@
-import React from 'react'
 import App, { Container } from 'next/app'
 import 'antd/dist/antd.css'
 import '../css/styles.css'

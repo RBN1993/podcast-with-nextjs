@@ -1,4 +1,3 @@
-import React from 'react'
 import 'isomorphic-fetch'
 import Error from './_error'
 import _Channel from '../components/Channel'

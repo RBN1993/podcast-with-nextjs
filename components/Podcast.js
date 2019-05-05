@@ -1,4 +1,3 @@
-import React from 'react'
 import { withRouter } from 'next/router'
 
 const Podcast = ({ clip }) => (
