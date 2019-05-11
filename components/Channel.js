@@ -1,12 +1,16 @@
 import { slug } from '../helpers/slug'
 import { Link } from '../routes'
 import { useState, useCallback } from 'react'
-import Podcast from './Podcast'
+import Podcast from './ModalPodcast'
 
 const Channel = ({ title, urls, audio_clips, series, channelId }) => {
   const [podcast, setPodcast] = useState()
 
   const handleOpenPodcast = useCallback((e, podcast) => {
+    // Prevent show page podcast but if we want use href delete this line and 
+    // {podcast && <Podcast clip={podcast} onClose={handleClosePodcast} />}
+    // then ww can us <Link></Link>
+
     e.preventDefault()
     setPodcast(podcast)
   }, [])
@@ -25,7 +29,6 @@ const Channel = ({ title, urls, audio_clips, series, channelId }) => {
           backgroundImage: `url(${urls.banner_image.original})`
         }}
       />
-
       <h1 id="channelH1">{title}</h1>
       {/* Si hay series imprimo */}
       {Boolean(series.length) && (
@@ -34,7 +37,6 @@ const Channel = ({ title, urls, audio_clips, series, channelId }) => {
           <div className="channels">
             {series.map((serie, index) => (
               <Link
-                onClick
                 route="channel"
                 params={{ slug: slug(serie.title), id: serie.id }}
                 prefetch
@@ -67,12 +69,12 @@ const Channel = ({ title, urls, audio_clips, series, channelId }) => {
               //   key={index}
               // >
               <a
-                href={`/${title}.${channelId}/${slug(audio.title)}.${audio.id}`}
+                href={`/${slug(title)}.${channelId}/${slug(audio.title)}.${audio.id}`}
                 className="channel"
                 key={index}
                 onClick={e => handleOpenPodcast(e, audio)}
               >
-                <img src={audio.urls.image} />
+                <img src={audio.urls.image || audio.urls.wave_img} />
                 <h2 id="channelH2">{audio.title}</h2>
                 <div className="meta">
                   {Math.ceil(audio.duration / 60)}:00 min

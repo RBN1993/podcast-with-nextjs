@@ -1,20 +1,15 @@
-import { Modal, Card } from 'antd'
+const Podcast = ({ clip }) => (
+  <div className="modal">
+    <div className="clip">
+      <picture>
+        <div
+          style={{
+            backgroundImage: `url(${clip.urls.image ||
+              clip.channel.urls.logo_image.original})`
+          }}
+        />
+      </picture>
 
-const Podcast = ({ clip, onClose }) => (
-  <Modal
-    visible={Boolean(clip)}
-    closable={false}
-    onCancel={onClose}
-    footer={null}
-    centered={true}
-    bodyStyle={{ background: ' #8756ca', padding: '0' }}
-  >
-    <Card
-      className="clip"
-      cover={
-        <img src={clip.urls.image || clip.channel.urls.logo_image.original} />
-      }
-    >
       <div className="player">
         <h3>{clip.title}</h3>
         <h6>{clip.channel.title}</h6>
@@ -22,8 +17,8 @@ const Podcast = ({ clip, onClose }) => (
           <source src={clip.urls.high_mp3} type="audio/mpeg" />
         </audio>
       </div>
-    </Card>
-  </Modal>
+    </div>
+  </div>
 )
 
 export default Podcast
