@@ -1,4 +1,4 @@
-import { Modal, Card, Divider } from 'antd'
+import { Modal, Card } from 'antd'
 
 const Podcast = ({ clip, onClose }) => (
   <Modal
@@ -7,7 +7,7 @@ const Podcast = ({ clip, onClose }) => (
     onCancel={onClose}
     footer={null}
     centered={true}
-    bodyStyle={{ background: ' #8756ca', border: 'none', padding: '5px' }}
+    bodyStyle={{ background: ' #8756ca', padding: '0' }}
   >
     <Card
       className="clip"
@@ -15,7 +15,6 @@ const Podcast = ({ clip, onClose }) => (
         <img src={clip.urls.image || clip.channel.urls.logo_image.original} />
       }
     >
-      {/* <Divider type="horizontal" /> */}
       <div className="player">
         <h3>{clip.title}</h3>
         <h6>{clip.channel.title}</h6>
