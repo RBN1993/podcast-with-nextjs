@@ -1,6 +1,3 @@
-import React from 'react'
-import { withRouter } from 'next/router'
-
 const Podcast = ({ clip }) => (
   <div className="modal">
     <div className="clip">
@@ -24,4 +21,4 @@ const Podcast = ({ clip }) => (
   </div>
 )
 
-export default withRouter(Podcast)
+export default Podcast
