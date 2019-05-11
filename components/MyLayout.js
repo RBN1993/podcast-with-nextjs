@@ -1,8 +1,12 @@
 import { Layout, Icon } from 'antd'
 import Link from 'next/link'
 import Head from 'next/head'
+import Router, { withRouter } from 'next/router'
+import NProgress from 'nprogress';
 
-import { withRouter } from 'next/router'
+Router.onRouteChangeStart = url => NProgress.start()
+Router.onRouteChangeComplete = () => NProgress.done()
+Router.onRouteChangeError = () => NProgress.done()
 
 const { Header, Content } = Layout
 
