@@ -1,24 +1,31 @@
 import { slug } from '../helpers/slug'
 import { Link } from '../routes'
 import { useState, useCallback } from 'react'
+import Podcast from './Podcast'
 
 const Channel = ({ title, urls, audio_clips, series, channelId }) => {
   const [podcast, setPodcast] = useState()
+
   const handleOpenPodcast = useCallback((e, podcast) => {
     e.preventDefault()
-    setPodcast({ podcast })
-    console.log({ podcast })
+    setPodcast(podcast)
+  }, [])
+
+  const handleClosePodcast = useCallback(e => {
+    e.preventDefault()
+    setPodcast(null)
   }, [])
 
   return (
     <>
+      {podcast && <Podcast clip={podcast} onClose={handleClosePodcast} />}
       <div
         className="banner"
         style={{
           backgroundImage: `url(${urls.banner_image.original})`
         }}
       />
-      {podcast && <div>holaa podcast</div>}
+
       <h1 id="channelH1">{title}</h1>
       {/* Si hay series imprimo */}
       {Boolean(series.length) && (
