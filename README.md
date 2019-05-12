@@ -1,7 +1,6 @@
-
 # First application with Next js
 
-App of Podcast integrated with AudioBoom API to learn Next js
+Podcast app integrated with AudioBoom API to learn Next js
 
 ![Index app](./.readme-static/index.png)
 ![Serie](./.readme-static/serie.png)
@@ -11,10 +10,11 @@ App of Podcast integrated with AudioBoom API to learn Next js
 # ¿How it works?
 
 Require Node js 10
-* `yarn` to install all dependencies.
-* `yarn dev` to start development environment.
-* `yarn build && yarn start` to start production environment
 
-# License 
+- `yarn` to install all dependencies.
+- `yarn dev` to start development environment.
+- `yarn build && yarn start` to start production environment
+
+# License
 
 MIT
