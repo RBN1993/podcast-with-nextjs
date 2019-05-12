@@ -225,3 +225,18 @@ audio {
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.ant-back-top {
+  bottom: 100px;
+}
+.ant-back-top-inner {
+  height: 40px;
+  width: 60px;
+  line-height: 40px;
+  border-radius: 4px;
+  border: solid 1px honeydew;
+  background-color: rgb(255, 62, 191);
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+}

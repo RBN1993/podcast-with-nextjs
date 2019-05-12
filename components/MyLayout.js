@@ -1,8 +1,8 @@
-import { Layout, Icon } from 'antd'
+import { Layout, Icon, BackTop } from 'antd'
 import Link from 'next/link'
 import Head from 'next/head'
 import Router, { withRouter } from 'next/router'
-import NProgress from 'nprogress';
+import NProgress from 'nprogress'
 
 Router.onRouteChangeStart = url => NProgress.start()
 Router.onRouteChangeComplete = () => NProgress.done()
@@ -33,6 +33,14 @@ const MyLayout = ({ children, router: { pathname, back } }) => (
           </a>
         </Link>
       </Header>
+      <div>
+        <BackTop>
+          <div className="ant-back-top-inner">
+            <span>UP</span>
+            <Icon type="arrow-up" />
+          </div>
+        </BackTop>
+      </div>
       <Content className="content">{children}</Content>
     </Layout>
   </>
