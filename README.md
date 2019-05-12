@@ -7,6 +7,8 @@ Podcast app integrated with AudioBoom API to learn Next js
 ![Channel](./.readme-static/channel.png)
 ![Podcast](./.readme-static/modal.png)
 
+[Test my app in this link!](https://nextjs.surfacerobin.now.sh/)
+
 # ¿How it works?
 
 Require Node js 10
