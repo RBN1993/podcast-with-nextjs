@@ -22,7 +22,7 @@ const MyLayout = ({ children, router: { pathname, back } }) => (
           <div onClick={() => back()}>
             <a className="links" style={{ float: 'left' }}>
               <Icon type="left-circle" />
-              <span>Volver</span>
+              <span>Go back</span>
             </a>
           </div>
         )}

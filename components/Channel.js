@@ -54,7 +54,7 @@ const Channel = ({ title, urls, audio_clips, series, channelId }) => {
 
       {audio_clips.length && (
         <>
-          <h2 id="channelH2">Últimos Podcasts</h2>
+          <h2 id="channelH2">Last Podcasts</h2>
           <div className="channels">
             {audio_clips.map((audio, index) => (
               // <Link

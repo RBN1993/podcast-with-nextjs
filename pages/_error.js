@@ -14,25 +14,28 @@ export default class Error extends React.Component {
       <>
         {statusCode === 404 ? (
           <div className="message">
-            <h1>Esta página no existe :(</h1>
+            <h1>Page does not exist :(</h1>
             <p>
               <Link href="/">
-                <a>Volver a la home</a>
+                <a>
+                  <Icon type="home" />
+                  <span>Go back home</span>
+                </a>
               </Link>
             </p>
           </div>
         ) : (
-          <div className="message">
-            <h1>Hubo un problema :(</h1>
-            <p>Inténtalo de nuevo más tarde</p>
-            <div onClick={() => Router.back()}>
-              <a className="links">
-                <Icon type="left-circle" />
-                <span>Volver</span>
-              </a>
+            <div className="message">
+              <h1>There was a problem :(</h1>
+              <p>Try again later</p>
+              <div onClick={() => Router.back()}>
+                <a className="links">
+                  <Icon type="left-circle" />
+                  <span>Go back</span>
+                </a>
+              </div>
             </div>
-          </div>
-        )}
+          )}
         <style jsx>{`
           .message {
             padding: 100px 30px;
@@ -45,6 +48,7 @@ export default class Error extends React.Component {
           a {
             color: #8756ca;
           }
+          span { margin-left:5px}
         `}</style>
         <style jsx global>
           {`
