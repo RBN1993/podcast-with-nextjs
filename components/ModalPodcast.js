@@ -3,7 +3,6 @@ import { Modal, Card } from 'antd'
 const Podcast = ({ clip, onClose }) => (
   <Modal
     visible={Boolean(clip)}
-    closable={false}
     onCancel={onClose}
     footer={null}
     centered={true}
