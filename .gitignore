@@ -2,3 +2,4 @@ node_modules
 .next
 urls-user-fiendly.pptx
 dist
+static/workbox
