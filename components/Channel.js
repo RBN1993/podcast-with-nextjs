@@ -28,29 +28,29 @@ const Channel = ({ title, urls, audio_clips, series, channelId }) => {
     <>
       {podcast && <Podcast clip={podcast} onClose={handleClosePodcast} />}
       <div
-        className="banner"
+        className='banner'
         style={{
           backgroundImage: `url(${urls.banner_image.original})`
         }}
       />
       <Divider />
-      <h1 id="channelH1">{title}</h1>
+      <h1 id='channelH1'>{title}</h1>
       {/* Si hay series imprimo */}
       <Tabs
-        defaultActiveKey="1"
+        defaultActiveKey='1'
         tabBarStyle={{ color: 'white', textAlign: 'center', height: 'auto' }}
       >
         {audio_clips.length && (
           <TabPane
             tab={
               <span>
-                <Icon type="customer-service" />
+                <Icon type='customer-service' />
                 Last podcast
               </span>
             }
-            key="1"
+            key='1'
           >
-            <div className="channels">
+            <div className='channels'>
               {audio_clips.map((audio, index) => (
                 // <Link
                 //   route="podcast"
@@ -67,15 +67,15 @@ const Channel = ({ title, urls, audio_clips, series, channelId }) => {
                   href={`/${slug(title)}.${channelId}/${slug(audio.title)}.${
                     audio.id
                   }`}
-                  className="channel"
+                  className='channel'
                   key={index}
                   onClick={e => handleOpenPodcast(e, audio)}
                 >
                   <img src={audio.urls.image || audio.urls.wave_img} />
-                  <h2 id="channelH2">{audio.title}</h2>
-                  <div className="meta">
+                  <h2 id='channelH2'>{audio.title}</h2>
+                  <div className='meta'>
                     <div style={{ position: 'absolute', top: '34%' }}>
-                      <Icon type="play-circle" theme="filled" />
+                      <Icon type='play-circle' theme='filled' />
                     </div>
                     <div>
                       <span>{Math.ceil(audio.duration / 60)}:00 min</span>
@@ -92,23 +92,23 @@ const Channel = ({ title, urls, audio_clips, series, channelId }) => {
           <TabPane
             tab={
               <span>
-                <Icon type="fire" />
+                <Icon type='fire' />
                 Series
               </span>
             }
-            key="2"
+            key='2'
           >
-            <div className="channels">
+            <div className='channels'>
               {series.map((serie, index) => (
                 <Link
-                  route="channel"
+                  route='channel'
                   params={{ slug: slug(serie.title), id: serie.id }}
-                  prefetch
+                  // prefetch
                   key={index}
                 >
-                  <a className="channel" key={index}>
+                  <a className='channel' key={index}>
                     <img src={serie.urls.logo_image.original} />
-                    <h2 id="channelH2">{serie.title}</h2>
+                    <h2 id='channelH2'>{serie.title}</h2>
                   </a>
                 </Link>
               ))}
