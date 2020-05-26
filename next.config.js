@@ -1,6 +1,7 @@
 // next.config.js
 const withOffline = require('next-offline')
 const useCss = require('@zeit/next-css')
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 
 const baseConfig = {
   onDemandEntries: {
@@ -26,6 +27,25 @@ module.exports = withOffline(
         '/404.html': { page: '/_error' },
         '/': { page: '/' }
       }
+    },
+    webpack: (config = [], { dev }) => {
+      if (dev) {
+        return config
+      }
+      config.plugins.push(
+        new SWPrecacheWebpackPlugin({
+          minify: true,
+          verbose: true,
+          staticFileGlobsIgnorePatterns: [/\.next\//],
+          runtimeCaching: [
+            {
+              handler: 'cacheFirst',
+              urlPattern: /^https?.*/
+            }
+          ]
+        })
+      )
+      return config
     }
   })
 )

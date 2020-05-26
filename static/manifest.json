@@ -1,0 +1,16 @@
+{
+  "name": "Podcats PWA",
+  "short_name": "Podcast-PWA",
+  "description": "A try to create a Progressive Web App built using Next.js",
+  "icons": [
+    {
+      "src": "/static/icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ff80cc",
+  "background_color": "#fff",
+  "start_url": "/",
+  "display": "standalone"
+}
