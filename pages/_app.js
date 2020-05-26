@@ -12,6 +12,19 @@ class MyApp extends App {
 
     return { pageProps }
   }
+  //TODO: left here instead MyLayout?
+  // async componentDidMount() {
+  //   if ('serviceWorker' in navigator) {
+  //     navigator.serviceWorker
+  //       .register('/service-worker.js')
+  //       .then(registration => {
+  //         console.log('service worker registration successful')
+  //       })
+  //       .catch(err => {
+  //         console.warn('service worker registration failed')
+  //       })
+  //   }
+  // }
   render() {
     const { Component, pageProps } = this.props
     return (

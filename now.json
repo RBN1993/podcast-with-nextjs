@@ -1,4 +1,11 @@
 {
   "version": 2,
-  "builds": [{ "src": "package.json", "use": "@now/static-build" }]
+  "name": "podcast-pwa",
+  "alias": "Podcast-pwa",
+  "builds": [{ "src": "package.json", "use": "@now/static-build" }],
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" },
+    { "handle": "filesystem" },
+    { "src": "/.*", "status": 404, "dest": "/404.html" }
+  ]
 }
