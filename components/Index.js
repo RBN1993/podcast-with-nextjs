@@ -8,10 +8,10 @@ const IndexPage = ({ channels }) => (
         route='channel'
         params={{ slug: slug(channel.title), id: channel.id }}
         key={index}
-        // prefetch
+        prefetch
       >
         <a className='channel' key={index}>
-          <img src='../static/papa-roach.jpg' alt={channel.title} />
+          <img src={channel.urls.logo_image.original} alt={channel.title} />
           <h2 id='channelH2'>{channel.title}</h2>
         </a>
       </Link>
