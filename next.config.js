@@ -39,7 +39,7 @@ module.exports = withOffline(
           staticFileGlobsIgnorePatterns: [/\.next\//],
           runtimeCaching: [
             {
-              handler: 'cacheFirst',
+              handler: 'networkFirst',
               urlPattern: /^https?.*/
             }
           ]
