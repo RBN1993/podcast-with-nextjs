@@ -103,7 +103,7 @@ const Channel = ({ title, urls, audio_clips, series, channelId }) => {
                 <Link
                   route='channel'
                   params={{ slug: slug(serie.title), id: serie.id }}
-                  // prefetch
+                  prefetch
                   key={index}
                 >
                   <a className='channel' key={index}>

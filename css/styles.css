@@ -110,6 +110,12 @@ nav a {
   background: #8756ca;
   color: white;
 }
+
+@media only screen and (max-width: 600px) {
+  .ant-card-body {
+    padding: 10px;
+  }
+}
 picture {
   display: flex;
   align-items: center;
