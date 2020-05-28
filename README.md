@@ -15,6 +15,8 @@ Podcast app integrated with AudioBoom API to learn Next js
 
 [Test my PWA in this link!](https://podcast-pwa.now.sh/)
 
+![Podcast](./.readme-static/screen-capture-pwa.png)
+
 # ¿How it works?
 
 Require Node js 10
