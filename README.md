@@ -25,6 +25,6 @@ Require Node js 10
 - `yarn dev` to start development environment.
 - `yarn build && yarn start` to start production environment
 
-# License
+## License
 
 MIT
